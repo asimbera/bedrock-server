@@ -13,10 +13,11 @@ RUN wget "https://minecraft.azureedge.net/bin-linux/bedrock-server-${version}.zi
   && rm bedrock-server.zip
 
 # Set executable permissions
-RUN chmod +x bedrock_server entrypoint.sh
+RUN chmod +x bedrock_server
 
 # Create result image
 FROM ubuntu:latest
+
 
 RUN apt update && apt install -y \
   openssl \
@@ -24,10 +25,12 @@ RUN apt update && apt install -y \
 
 # Copy files to container
 COPY --from=build /build /app
+
 # Set cwd inside container
 WORKDIR /app
+ENV LD_LIBRARY_PATH=.
 
 # Expose ports
 EXPOSE 19132-19133/udp
 
-ENTRYPOINT [ "./entrypoint.sh" ]
+ENTRYPOINT [ "./bedrock_server" ]
