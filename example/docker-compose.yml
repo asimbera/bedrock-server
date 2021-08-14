@@ -1,0 +1,12 @@
+services:
+  bedrock:
+    image: asimbera/bedrock-server:latest
+    stdin_open: true
+    tty: true
+    ports:
+      - '19132:19132/udp'
+    volumes:
+      - ./server.properties:/app/server.properties
+      - ./permissions.json:/app/permissions.json
+      - ./whitelist.json:/app/whitelist.json
+      - ./worlds:/app/worlds
