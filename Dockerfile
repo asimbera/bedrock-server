@@ -3,7 +3,6 @@ FROM alpine:latest AS build
 ARG version='1.17.11.01'
 
 RUN apk add --no-cache unzip wget
-COPY . /build
 WORKDIR /build
 
 # Download, unpack and remove archive of bedrock-server.
