@@ -27,7 +27,7 @@ COPY --from=build /build /app
 
 # Set cwd inside container
 WORKDIR /app
-ENV LD_LIBRARY_PATH=.
+ENV LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64:.
 
 # Expose ports
 EXPOSE 19132-19133/udp
