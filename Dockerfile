@@ -15,7 +15,7 @@ RUN wget "https://minecraft.azureedge.net/bin-linux/bedrock-server-${version}.zi
 RUN chmod +x bedrock_server
 
 # Create result image
-FROM ubuntu:latest
+FROM debian:latest
 
 
 RUN apt update && apt install -y \
@@ -27,7 +27,7 @@ COPY --from=build /build /app
 
 # Set cwd inside container
 WORKDIR /app
-ENV LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64:.
+ENV LD_LIBRARY_PATH=.
 
 # Expose ports
 EXPOSE 19132-19133/udp
