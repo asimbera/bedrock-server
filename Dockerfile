@@ -19,7 +19,7 @@ FROM debian:latest
 
 
 RUN apt update && apt install -y \
-  openssl \
+  openssl curl \
   && rm -rf /var/lib/apt/lists/*
 
 # Copy files to container
