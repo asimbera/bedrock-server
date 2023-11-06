@@ -1,6 +1,6 @@
 FROM alpine:latest AS build
 
-ARG version='1.19.51.01'
+ARG version='1.20.41.02'
 
 RUN apk add --no-cache unzip wget
 WORKDIR /build
